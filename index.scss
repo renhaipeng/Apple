@@ -1,0 +1,1084 @@
+body{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+ul,li,h1,h2,h3,h4,h5,h6,p,figure{
+	margin: 0;
+	padding: 0;
+}
+ul,li{
+    list-style: none;
+}
+a{
+	text-decoration: none;
+}
+/*ziti*/
+@mixin font-generator($name,$font-name){
+	$font-path: 'fonts/';
+
+@font-face{
+	font-family: $name;
+	src:local($font-name),
+	url($font-path + $font-name +'.woff') format('woff'),
+	url($font-path + $font-name +'.eot') format('eot'),
+	url($font-path + $font-name +'.ttf') format('ttf'),
+	url($font-path + $font-name +'.svg') format('svg');
+  }
+}
+@include font-generator('daima','consolas')
+@include font-generator('myrial normal','myriad-set-pro_text');
+@include font-generator('myrial bold','myriad-set-pro_semibold');
+@include font-generator('myrial thin','myriad-set-pro_thin');
+@include font-generator('myrial extrathin','myriad-set-pro_extrathin');
+/*ziti wan*/
+
+/*toubu*/
+$medium: 1068px;
+$small: 736px;
+%clear{
+	content: "";
+	display: block;
+	clear: both;
+}
+/*tou bu*/
+.headernav{
+	width: 100%;
+	min-height: 44px;
+	margin: 0 auto;
+	background: rgba(0,0,0,0.8);
+	.nav-item{
+		max-width: 980px;
+		height: 44px;
+		padding: 0 22px;
+		margin: 0 auto;
+		text-align: justify;	
+	}::after{
+				display: inline-block;
+			   @extend %clear;
+				content: '';
+				width: 100%;
+				height: 0;
+			}
+}
+
+$cla:(apple:20px,mac:31px,ipad:30px,iphone:46px,watch:44px,tv:20px,music:40px,support:57px,search:20px,bag:18px,
+	);
+@each $acce in map_keys($cla){
+	.nav-#{$acce}{
+		display: inline-block;
+		padding: 0 10px;
+		width: map_get($cla,$acce);
+		background: url(images/$acce +'.svg') center center no-repeat;
+		height: 44px;
+		a{
+			span{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 1px;
+				height: 1px;
+				overflow: hidden;
+			}
+		}
+
+	}
+}
+.nav-link{
+	display: none;
+}
+.headernav{
+  .nav-item{
+  @media screen and(max-width: $small){
+  	display: none;
+    }
+  }
+  .nav-link{
+  	@media screen and(max-width: $small){
+  		display: block;
+  		 width: 100%;
+  		 height: 48px;
+  		 position: absolute;
+  		 left: 0;
+  		 top: 0;
+  		 background: rgba(0,0,0,0.8);
+  		 .nav-menu{
+  		 	display: inline-block;
+  		 	width: 48px;
+  		 	height: 48px;
+  		 	position: absolute;
+  		 	left: 0;
+  		 	top: 0;
+	  		 	 span{
+	  		 	position: absolute;
+				left: 0;
+				top: 0;
+				width: 1px;
+				height: 1px;
+				overflow: hidden;
+	  		    }
+  		     a{
+  		 	display: inline-block;
+  		 	width: 100%;
+  		 	height: 48px;
+  		 	text-align: center;
+  		 	div:nth-child(1){
+  		 		width: 20px;
+  		 		height: 2px;
+  		 		border-bottom: 1px solid #fff;
+                 position: absolute;
+                 left: 20px;
+                 top: 17px;
+  		 		
+  		 	}
+  		 	div:nth-child(2){
+  		 		width: 20px;
+  		 		height: 2px;
+  		 		border-bottom: 1px solid #fff;
+                 position: absolute;
+                 left: 20px;
+                 top: 23px;
+  		 	}
+  		 }
+  		}
+  		.nav-apple{
+  			width: 20px;
+  			height: 48px;
+  			padding: 0 10px;
+  			position: absolute;
+  			margin: auto;
+  			left: 0;
+  			right: 0;
+  			top: 0;
+  			bottom: 0;
+  		}
+  		.nav-bag{
+  			width: 30px;
+  			height: 48px;
+  			padding: 0 10px;
+  			position: absolute;
+  			right: 0;
+  			top: 0;
+  			bottom: 0;
+  		}
+  	}
+  }
+}	
+
+
+/*动效图*/
+.banner{
+	width: 100%;
+	height: 760px;
+	background: white;
+	.banner-zi{
+		width: 800px;
+		padding: 80px 0;
+		margin: 0 auto;
+		background: white;
+		text-align: center;
+		h2{
+			 span{
+			 	position: absolute;
+				left: 0;
+				top: 0;
+				width: 1px;
+				height: 1px;
+				overflow: hidden;
+			 }
+	  		 	
+			  background: url(images/ipad_pro_medium.png);
+			  margin: 0 auto;
+			  background-size: 139px 37px;
+			  width: 139px;
+			  height: 37px;
+			  background-position: center center no-repeat;
+         @media screen and(max-width: $small){
+         	background: url(images/ipad_pro_small.png);
+			  background-size: 108px 29px;
+			  width: 108px;
+			  height: 29px;
+			  background-position: center center no-repeat;
+         }
+		}
+		h3{
+			font-size: 32px;
+			font-family: 'myrial extrathin';
+         @media screen and(max-width: $small){
+         	font-family: 'myrial extrathin';
+         	font-size: 20px;
+         }
+		}
+		.ul{
+			text-align: center;
+			li{
+               display: inline-block;
+               margin-left: 10px;
+               a{
+               	font-size: 24px;
+               	font-family: 'myrial normal';
+               	color: #08c;
+               	 @media screen and(max-width: 760px){
+         	     font-size: 24px;
+                }
+		          @media screen and(max-width: $small){
+		         	font-size: 20px;
+		         }
+               }
+			}
+			.icon-gt:after{
+				    content: "";
+				    font-size: inherit;
+			}
+			.icon-play:after{
+				    content: "";
+				    font-size: inherit;
+			}
+		}
+	}
+}
+.banner{
+	@media screen and(max-width: 760px){
+		.banner-zi{
+			width: 100%;
+			margin: 0 auto;
+		}
+		.banner-tu{
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+	@media screen and(max-width: $small){
+		.banner-zi{
+			width: 100%;
+			margin: 0 auto;
+		}
+		.banner-tu{
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+}
+	.banner-tu{
+		position: relative;
+		.img-inner{
+			background-image: url(images/ipad_large.jpg);
+			background-position: center center; 
+			background-size: 1310px 541px;
+			width: 1310px;
+			height: 541px;
+			margin: auto;
+			@media screen and(max-width: $medium){
+            background-image: url(images/ipad_medium.jpg);
+            background-position: 0 0; 
+            background-size: 1310px 541px;
+            width: 1310px;
+            height: 541px;
+            margin: 0 auto;
+		 }
+			@media screen and(max-width: $small){
+            background-image: url(images/ipad_small.jpg);
+            background-position: center center; 
+            background-size: 440px 182px;
+            width: 440px;
+            height: 182px;
+            margin: 0 auto;
+		 }
+		}
+		
+	}
+
+.banner-1{
+	width: 100%;
+	height: 760px;
+	background: white;
+	.banner-1-zi{
+		width: 800px;
+		padding: 80px 0;
+		margin: 0 auto;
+		background: white;
+		text-align: center;
+		h2{
+			 span{
+			 	position: absolute;
+				left: 0;
+				top: 0;
+				width: 1px;
+				height: 1px;
+				overflow: hidden;
+			 }
+	  		 	
+			  background: url(images/iphone-se_medium.png);
+			  margin: 0 auto;
+			  background-size: 139px 37px;
+			  width: 139px;
+			  height: 37px;
+			  background-position: center center no-repeat;
+         @media screen and(max-width: $small){
+         	background: url(images/iphone-se_small.png);
+			  background-size: 108px 29px;
+			  width: 108px;
+			  height: 29px;
+			  background-position: center center no-repeat;
+         }
+		}
+		h3{
+			font-size: 32px;
+			font-family: 'myrial extrathin';
+			font-style: none;
+         @media screen and(max-width: $small){
+         	font-family: 'myrial extrathin';
+         	font-size: 20px;
+         }
+		}
+    }  
+}
+.banner-1{
+	@media screen and(max-width: 760px){
+		.banner-1-zi{
+			width: 100%;
+			margin: 0 auto;
+		}
+		.banner-tu-1{
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+	@media screen and(max-width: $small){
+		.banner-1-zi{
+			width: 100%;
+			margin: 0 auto;
+		}
+		.banner-1-tu{
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+}
+
+	.banner-tu-1{
+		position: relative;
+		.img-inner-1{
+			background-image: url(images/iphone_6s_medium.jpg);
+			background-position: center center; 
+			background-size: 1400px 389px;
+			width: 1400px;
+			height: 389px;
+			margin: 0 auto;
+			@media screen and(max-width: $medium){
+            background-image: url(images/iphone_6s_medium.jpg);
+            background-position: center center; 
+            background-size: 1400px 389px;
+            width: 1400px;
+            height: 389px;
+            margin: 0 auto;
+		 }
+			@media screen and(max-width: $small){
+            background-image: url(images/iphone_6s_small.jpg);
+            background-position: center center; 
+            background-size: 540px 150px;
+            width: 540px;
+            height: 150px;
+            margin: 0 auto;
+		 }
+		}
+	}
+
+.banner-2{
+	width: 100%;
+	height: 760px;
+	background: white;
+	.banner-2-zi{
+		width: 800px;
+		padding: 80px 0;
+		margin: 0 auto;
+		background: white;
+		text-align: center;
+		h2{
+			 span{
+			 	position: absolute;
+				left: 0;
+				top: 0;
+				width: 1px;
+				height: 1px;
+				overflow: hidden;
+			 }
+	  		 	
+			  background: url(images/watch-medium.png);
+			  margin: 0 auto;
+			  background-size: 139px 37px;
+			  width: 139px;
+			  height: 37px;
+			  background-position: center center no-repeat;
+         @media screen and(max-width: $small){
+         	background: url(images/watch-small.png);
+			  background-size: 108px 29px;
+			  width: 108px;
+			  height: 29px;
+			  background-position: center center no-repeat;
+         }
+		}
+		h3{
+			font-size: 32px;
+			font-family: 'myrial extrathin';
+			font-style: none;
+         @media screen and(max-width: $small){
+         	font-family: 'myrial extrathin';
+         	font-size: 20px;
+         }
+		}
+    }  
+}
+.banner-2{
+	@media screen and(max-width: 760px){
+		.banner-2-zi{
+			width: 100%;
+			margin: 0 auto;
+		}
+		.banner-tu-2{
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+	@media screen and(max-width: $small){
+		.banner-2-zi{
+			width: 100%;
+			margin: 0 auto;
+		}
+		.banner-2-tu{
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+}
+
+	.banner-tu-2{
+		position: relative;
+		.img-inner-2{
+			background-image: url(images/wacth_medium.jpg);
+			background-position: center center; 
+			background-size: 671px 341px;
+			width: 671px;
+			height: 341px;
+			margin: 0 auto;
+			@media screen and(max-width: $medium){
+            background-image: url(images/wacth_medium.jpg);
+            background-position: center center; 
+            background-size: 671px 341px;
+            width: 671px;
+            height: 341px;
+            margin: 0 auto;
+		 }
+			@media screen and(max-width: $small){
+            background-image: url(images/watch_small.jpg);
+            background-position: center center; 
+            background-size: 263px 134px;
+            width: 263px;
+            height: 134px;
+            margin: 0 auto;
+		 }
+		}
+	}
+/*toubu wan
+
+/*%clear{
+	content: '';
+	display: block;
+	clear: both;
+}*/
+/*.aside{
+	margin: 0 auto;
+	max-width: 2560px;
+	&::after{
+		@extend %clear
+	}
+}
+.aside li{
+	float: left;
+	height: 400px;
+	border: 1px solid black;
+	box-sizing: border-box;
+	font-size: 30px;
+	text-align: center;
+	line-height: 400px;
+}
+.aside li{
+	width: 25%;
+}
+@media screen and(max-width:800px){
+	.aside li{
+		width: 50%;
+		height: 300px;
+		line-height: 300px;
+	}
+}
+@media screen and(max-width:414px){
+	.aside li{
+		width: 100%;
+		height: 200px;
+		line-height: 200px;
+	}
+}*/
+
+ /*第二种的方法   可以根据窗口变换大小  循环*/
+
+
+/*12 栅格*/
+.aside{
+	min-height: 200px;
+	max-width: 2560px;
+    border-top: 2px solid white;
+    background: white;
+	position: relative;
+	&::after{
+		@extend %clear
+	}
+	span{
+	width: 1px;
+	height: 1px;
+	position: absolute;
+	left: 0;
+	top: 0;
+    overflow: hidden;
+    }
+}
+
+
+/*处理 边框*/
+.aside li{
+	margin-bottom: 1px;
+}
+.aside li a{
+	border-right: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+}
+.aside li:nth-child(4) a{
+	border-right: none;
+}
+@media screen and(max-width: $medium){
+	.aside li:nth-child(2n) a{
+		border-right: none;
+	}
+}
+@media screen and(max-width: $small){
+	.aside li a{
+		border-right: none;
+	}
+}
+/*处理完成*/
+
+
+ .aside li{
+ 	width: 25%;
+ 	height: 200px;
+ 	float: left;
+ 	@media screen and(max-width: $medium){
+ 			width:50%;
+ 	}
+ 	@media screen and(max-width: $small){
+ 			width:100%; 	
+ 		}
+ }
+ .aside li a{
+ 	display: block;
+ 	background-position: center center;
+ 	background-size: 414px 200px;
+ 	height: 200px;
+ 	@media screen and(max-width: $medium){
+ 			background-size: 640px 200px;
+ 	}
+ 	@media screen and(max-width: $small){
+ 			background-size: 736px 200px;
+ 	}
+ }
+$items:iphone_6s,apple,macback,access;
+@for $i from 1 through 4{
+	.aside li:nth-child(#{$i}) a{
+		background-image: url( nth($items,$i)+'_large.jpg');
+		background-position: center center;
+ 		background-repeat: no-repeat;
+	}
+	
+	@media screen and(max-width: $medium){
+ 		.aside li:nth-child(#{$i}) a{
+ 			background-image: url(nth($items,$i)+'_medium.jpg');
+ 			background-position: center center;
+ 			background-repeat: no-repeat;
+ 		}
+ 	}
+ 		@media screen and(max-width: $small){
+ 		.aside li:nth-child(#{$i}) a{
+ 			background-image: url(nth($items,$i)+'_small.jpg');
+ 			background-position: center center;
+ 			background-repeat: no-repeat;
+ 		}
+ 	}
+}
+
+.center-banner{
+	position: relative;
+	.center{
+		display: inline-block;
+		padding: 20px 0 ;
+		border-bottom: 1px solid #6d6d6d;
+		position: relative;
+		text-align: center;
+		figure{
+			display: inline-block;
+			background-image: url(images/shi.jpg);
+			background-size: 179px 44px;
+			height: 45px;
+			width: 180px;
+			position: absolute;
+			left:0;
+			top:7px;
+		}
+		span{
+			display: inline-block;
+			font-family: 'myrial normal';
+			margin-left: 202px;
+			border-left: 1px solid #6d6d6d;
+			padding-left: 10px;
+			a{
+			display: inline-block;
+			font-family: 'myrial normal';
+			color: #0088CC;
+		}
+		}
+		
+	}
+	.center-bo{
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 70px;
+		a{
+			font-family: 'myrial normal';
+			font-size: 16px;
+			color: #0088cc;
+		}
+	}
+}
+@media screen and(max-width: $small){
+  .center-banner .center{
+  	figure{
+  		width: 179px;
+  		height: 44px;
+  		position: absolute;
+  		margin: auto;
+  		left: -60px;
+  		right: 0;
+  		top: 10px;
+  	}
+  	span{
+  		display: inline-block;
+  		width: 100%;
+  		position: absolute;
+  		border-left: none;
+  		margin: auto;
+  	    left: -90px;
+  		top: 64px;
+  		right: 0;
+  		a{
+  		display: inline-block;
+  		width: 100%;
+  		position: absolute;
+  		margin: auto;
+  		left: 25px;
+  		top: 30px;
+  		right: 0;
+  	 }
+  	}
+  }
+  .center-banner .center-bo{
+		position: absolute;
+		margin: auto;
+		left: 60px;
+		right: 0;
+		top: 120px;
+		a{
+			font-family: 'myrial normal';
+			font-size: 16px;
+			color: #0088cc;
+		}
+	}
+}
+
+/*di bu */
+.footer{
+	width: 100%;
+	min-height: 368px;
+	margin-top: 100px;
+	font-size: 12px;
+	background: #F2F2F2;
+	.footer-inner{
+		max-width: 980px;
+		margin: 0 auto;
+		padding: 0 22px;
+		.section{
+			padding: 20px 0 0 0;
+			ul li{
+				display: block;
+				padding: 2px 0;
+				color: #666;
+				font-family: 'myrial normal';
+				margin-bottom: 5px;
+			}
+		}
+		nav .col{
+			float: left;
+	}
+ }
+ input{
+ 	display: none;
+ }
+}
+/*5栅格*/
+@for $i from 5 through 10{
+	.with-#{$i}-col .col{
+		width: percentage(1/$i);
+	}
+}
+@media screen and(max-width: $small){
+		@for $i from 5 through 10{
+	.with-#{$i}-col .col{
+		width: 100%;
+	}
+  }
+}
+.footer{
+	@media screen and(max-width: $small){
+		height: 621px;
+	}
+}
+.footer nav .section ul{
+	@media screen and(max-width: $small){
+		display: none;
+		text-align: left;
+	}
+}
+.footer nav .section h3{
+	padding: 2px 0;
+	color: #333;
+	font-family: 'myrial normal';
+	position: relative;
+	@media screen and(max-width: $small){
+		    display: block;
+			width: 100%;
+			text-align: left;
+			border-bottom: 1px solid #ccc;
+		&::after{
+			content: '+';
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 20px;
+		}
+	}
+}
+/*@media screen and(max-width: $small){
+	.footer #shop:checked + .section ul{
+		display: block;
+	}
+	.footer #shop:checked + .section h3::after{
+		content: 'x';
+	}
+}*/
+$id-name:shop,buss,store,learn,dd,education;
+@each $name in $id-name{
+      @media screen and(max-width: $small){
+		.footer ##{$name}:checked + .section ul{
+		display:block;
+		border-bottom: 1px solid #ccc;
+		}
+		.footer ##{$name}:checked + .section h3{
+			border-bottom: none;
+		}
+		.footer ##{$name}:checked + .section h3::after{
+			content: 'x';
+		}	
+	}
+  }
+
+
+
+
+ /*第一种的方法   可以根据窗口变换大小*/
+/*.aside{
+	li{
+		width: 25%;
+		height: 200px;
+		float: left;
+	}
+	li a{
+		display: block;
+		background-position: center center;
+		background-size: 360px 200px;
+		height: 200px;
+	}
+	li:nth-child(1) a{
+		background-image: url(images/1.jpg);
+		border-right: 1px solid black;
+	}
+	li:nth-child(2) a{
+		background-image: url(images/2.jpg);
+		border-right: 1px solid black;
+	}
+	li:nth-child(3) a{
+		background-image: url(images/3.jpg);
+		border-right: 1px solid black;
+	}
+	li:nth-child(4) a{
+		background-image: url(images/4.jpg);
+	}
+}
+@media screen and(max-width: 1068px){
+	.aside{
+		li{
+			display: block;
+			width: 50%;
+		}
+		li a{
+			background-size: 640px 200px;
+		}
+		li:nth-child(1) a{
+			background-image: url(images/11.jpg);
+			border-bottom: 1px solid black; 
+		}
+		li:nth-child(2) a{
+			background-image: url(images/21.jpg);
+			border-bottom: 1px solid black; 
+			border-right: none;
+		}
+		li:nth-child(3) a{
+			margin-top: 1px;
+			background-image: url(images/31.jpg);
+		}
+		li:nth-child(4) a{
+			margin-top: 1px;
+			background-image: url(images/41.jpg);
+		}
+	}
+}
+@media screen and(max-width: 735px){
+    .aside {
+    li{
+       display: block;
+       width: 100%;
+    }
+    li a{
+    	background-size: 736px 200px;
+    }
+    li:nth-child(1) a{
+    	    background-image: url(images/12.jpg);
+			border-right: none;
+    }
+     li:nth-child(2) a{
+    	    background-image: url(images/22.jpg);
+			border-top: 1px solid black;
+    }
+     li:nth-child(3) a{
+    	    background-image: url(images/32.jpg);
+			border-top: 1px solid black;
+			border-right: none;
+    }
+     li:nth-child(4) a{
+     	    border-top: 1px solid black;
+    	    background-image: url(images/42.jpg);
+    }
+  }
+}*/
+
+/*%clear{
+	content: "";
+	display: block;
+	clear: both;
+}
+.product{
+	min-height: 200px;
+	max-width: 2560px;
+   margin-top: 30px;
+   border: 1px solid black;
+   box-sizing: border-box;
+	position: relative;
+	&::after{
+		@extend %clear
+	}
+}
+ 
+.product li{
+	float: left;
+	height: 200px;
+	border: 1px solid #ff6700;
+	box-sizing: border-box;
+}*/
+
+/*.products{
+	min-height: 200px;
+	max-width: 2560px;
+   margin-top: 30px;
+   border: 1px solid black;
+   box-sizing: border-box;
+	position: relative;
+	&::after{
+		@extend %clear
+	}
+}
+ 
+.products li{
+	float: left;
+	height: 200px;
+	border: 1px solid #ff6700;
+	box-sizing: border-box;
+}*/
+
+/*方法一*/
+	/*.large-1{
+		width: 8.333333%;
+	}
+	.large-2{
+		width: 16.6666%;
+	}
+	.large-3{
+		width: 25%;
+	}
+	.large-4{
+		width: 33.333333%;
+	}
+	.large-5{
+		width: 41.6666666%;
+	}
+	.large-6{
+		width: 50%;
+	}
+	.large-7{
+		width: 58.333333%;
+	}
+	.large-8{
+		width: 66.666666%;
+	}
+	.large-9{
+		width: 75%;
+	}
+	.large-10{
+		width: 83.33333%;
+	}
+	.large-11{
+		width: 91.666666%;
+	}
+	.large-12{
+	     width: 100%;
+	}
+@media screen and(max-width: $medium){
+	.medium-1{
+		width: 8.333333%;
+	}
+	.medium-2{
+		width: 16.6666%;
+	}
+	.medium-3{
+		width: 25%;
+	}
+	.medium-4{
+		width: 33.333333%;
+	}
+	.medium-5{
+		width: 41.6666666%;
+	}
+	.medium-6{
+		width: 50%;
+	}
+	.medium-7{
+		width: 58.333333%;
+	}
+	.medium-8{
+		width: 66.666666%;
+	}
+	.medium-9{
+		width: 75%;
+	}
+	.medium-10{
+		width: 83.33333%;
+	}
+	.medium-11{
+		width: 91.666666%;
+	}
+	.medium-12{
+	     width: 100%;
+	}
+}
+@media screen and(max-width: $small){
+	.small-1{
+		width: 8.333333%;
+	}
+	.small-2{
+		width: 16.6666%;
+	}
+	.small-3{
+		width: 25%;
+	}
+	.small-4{
+		width: 33.333333%;
+	}
+	.small-5{
+		width: 41.6666666%;
+	}
+	.small-6{
+		width: 50%;
+	}
+	.small-7{
+		width: 58.333333%;
+	}
+	.small-8{
+		width: 66.666666%;
+	}
+	.small-9{
+		width: 75%;
+	}
+	.small-10{
+		width: 83.33333%;
+	}
+	.small-11{
+		width: 91.666666%;
+	}
+	.small-12{
+	     width: 100%;
+	}
+}
+*/
+/*方法二  用sass的简便算法*/
+%column{
+	float: left;
+	position: relative;
+}
+
+$rules:(
+	large:2000px,
+	medium:1560px,
+	small:736px,
+	);
+$grid:12;
+@each $rule in map_keys($rules){
+   @for $i from 1 through $grid{
+   	.#{$rule}-#{$i}{
+   		@extend %column;
+   	}
+   }
+}
+
+@each $rule in map_keys($rules){
+	@media screen and(max-width: map_get($rules,$rule)){
+   @for $i from 1 through $grid{
+   	.#{$rule}-#{$i}{
+   		width: percentage($i/$grid);
+   	}
+   }
+ }
+}
+
+
+
+
+
+
+
